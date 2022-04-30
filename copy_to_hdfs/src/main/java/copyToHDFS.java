@@ -8,7 +8,6 @@ import java.io.IOException;
 public class copyToHDFS {
     public static void main(String[] args) {
 
-        System.out.println(System.getProperty("userid"));
         String hdfsSiteXML = "/home/ubuntu/hadoop/etc/hadoop/hdfs-site.xml";
         String coreSiteXML = "/home/ubuntu/hadoop/etc/hadoop/core-site.xml";
         String localfilepath = args[0];
@@ -24,7 +23,6 @@ public class copyToHDFS {
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
-            System.out.println(System.getProperty("inside catch"));
         }
 
     }
