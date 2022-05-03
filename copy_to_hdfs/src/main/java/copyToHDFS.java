@@ -16,10 +16,12 @@ public class copyToHDFS {
         Configuration conf = new Configuration();
         conf.addResource(new Path(hdfsSiteXML));
         conf.addResource(new Path(coreSiteXML));
+        conf.set("fs.hdfs.impl", org.apache.hadoop.hdfs.DistributedFileSystem.class.getName());
+        conf.set("fs.file.impl", org.apache.hadoop.fs.LocalFileSystem.class.getName());
 
         try {
             FileSystem fs = FileSystem.get(conf);
-            fs.copyFromLocalFile(false, true, new Path(localfilepath), new Path(hdfstargetpath));
+            fs.copyFromLocalFile(true, true, new Path(localfilepath), new Path(hdfstargetpath));
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
