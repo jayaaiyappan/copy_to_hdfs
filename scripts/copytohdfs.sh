@@ -1,0 +1,1 @@
+hadoop jar app/lib/copy_to_hdfs-1.0-SNAPSHOT-jar-with-dependencies.jar app/incoming/*.csv /app/files/
